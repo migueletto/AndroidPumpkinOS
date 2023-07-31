@@ -1,0 +1,13 @@
+<resources>
+    <string name="app_name">PalmOS</string>
+    <string name="menu_add">Add</string>
+    <string name="menu_reset">Reset</string>
+    <string name="menu_about">About</string>
+    <string name="menu_exit">Exit</string>
+    <string name="title_activity_receive">ReceiveActivity</string>
+    <!--
+    This string is used for square devices and overridden by hello_world in
+    values-round/strings.xml for round devices.
+    -->
+    <string name="hello_world">Hello Square World!</string>
+</resources>
