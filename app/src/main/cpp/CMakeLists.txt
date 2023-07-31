@@ -16,29 +16,29 @@ add_definitions(-DSYSTEM_NAME=\"pit\" -DSYSTEM_VERSION=\"1.0\" -DSYS_CPU=2 -DSYS
         -g
         )
 
-include_directories(pumpkin/libpit)
-include_directories(pumpkin/lua/src)
-include_directories(pumpkin/font)
-include_directories(pumpkin/libpumpkin)
-include_directories(pumpkin/libpumpkin/dlmalloc)
-include_directories(pumpkin/libpumpkin/emulation)
-include_directories(pumpkin/libpumpkin/emulation/arm)
-include_directories(pumpkin/libpumpkin/emulation/darm)
-include_directories(pumpkin/PalmOS)
-include_directories(pumpkin/PalmOS/Core)
-include_directories(pumpkin/PalmOS/Core/Hardware)
-include_directories(pumpkin/PalmOS/Core/System)
-include_directories(pumpkin/PalmOS/Core/UI)
-include_directories(pumpkin/PalmOS/Dynamic)
-include_directories(pumpkin/PalmOS/Extensions/Bluetooth)
-include_directories(pumpkin/PalmOS/Extensions/ExpansionMgr)
-include_directories(pumpkin/PalmOS/Libraries)
-include_directories(pumpkin/PalmOS/Libraries/CPMLib)
-include_directories(pumpkin/PalmOS/Libraries/INet)
-include_directories(pumpkin/PalmOS/Libraries/PalmOSGlue)
-include_directories(pumpkin/PalmOS/Libraries/Pdi)
-include_directories(pumpkin/PalmOS/Libraries/SSL)
-include_directories(pumpkin/PalmOS/Garmin)
+include_directories(PumpkinOS/src/libpit)
+include_directories(PumpkinOS/src/lua/src)
+include_directories(PumpkinOS/src/font)
+include_directories(PumpkinOS/src/libpumpkin)
+include_directories(PumpkinOS/src/libpumpkin/dlmalloc)
+include_directories(PumpkinOS/src/libpumpkin/emulation)
+include_directories(PumpkinOS/src/libpumpkin/emulation/arm)
+include_directories(PumpkinOS/src/libpumpkin/emulation/darm)
+include_directories(PumpkinOS/src/PalmOS)
+include_directories(PumpkinOS/src/PalmOS/Core)
+include_directories(PumpkinOS/src/PalmOS/Core/Hardware)
+include_directories(PumpkinOS/src/PalmOS/Core/System)
+include_directories(PumpkinOS/src/PalmOS/Core/UI)
+include_directories(PumpkinOS/src/PalmOS/Dynamic)
+include_directories(PumpkinOS/src/PalmOS/Extensions/Bluetooth)
+include_directories(PumpkinOS/src/PalmOS/Extensions/ExpansionMgr)
+include_directories(PumpkinOS/src/PalmOS/Libraries)
+include_directories(PumpkinOS/src/PalmOS/Libraries/CPMLib)
+include_directories(PumpkinOS/src/PalmOS/Libraries/INet)
+include_directories(PumpkinOS/src/PalmOS/Libraries/PalmOSGlue)
+include_directories(PumpkinOS/src/PalmOS/Libraries/Pdi)
+include_directories(PumpkinOS/src/PalmOS/Libraries/SSL)
+include_directories(PumpkinOS/src/PalmOS/Garmin)
 
 # Creates and names a library, sets it as either STATIC
 # or SHARED, and provides the relative paths to its source code.
@@ -51,43 +51,43 @@ add_library( # Sets the name of the library.
         # Sets the library as a shared library.
         SHARED
 
-        pumpkin/libpit/bmp.c
-        pumpkin/libpit/builtin.c
-        pumpkin/libpit/bytes.c
-        pumpkin/libpit/ctelnet.c
-        pumpkin/libpit/debug.c
-        pumpkin/libpit/endianness.c
-        pumpkin/libpit/filter.c
-        pumpkin/libpit/findargs.c
-        pumpkin/libpit/gps.c
-        pumpkin/libpit/graphic.c
-        pumpkin/libpit/httpc.c
-        pumpkin/libpit/httpd.c
-        pumpkin/libpit/io.c
-        pumpkin/libpit/list.c
-        pumpkin/libpit/loadfile.c
-        pumpkin/libpit/login.c
-        pumpkin/libpit/main.c
-        pumpkin/libpit/media.c
-        pumpkin/libpit/mutex.c
-        pumpkin/libpit/pterm.c
-        pumpkin/libpit/ptr.c
-        pumpkin/libpit/script.c
-        pumpkin/libpit/sig.c
-        pumpkin/libpit/sock.c
-        pumpkin/libpit/surface.c
-        pumpkin/libpit/sys.c
-        pumpkin/libpit/telnet.c
-        pumpkin/libpit/template.c
-        pumpkin/libpit/threadudp.c
-        pumpkin/libpit/timeutc.c
-        pumpkin/libpit/ts.c
-        pumpkin/libpit/util.c
-        pumpkin/libpit/vfont.c
-        pumpkin/libpit/vfs.c
-        pumpkin/libpit/vfslocal.c
-        pumpkin/libpit/xalloc.c
-        pumpkin/libpit/yuv.c
+        PumpkinOS/src/libpit/bmp.c
+        PumpkinOS/src/libpit/builtin.c
+        PumpkinOS/src/libpit/bytes.c
+        PumpkinOS/src/libpit/ctelnet.c
+        PumpkinOS/src/libpit/debug.c
+        PumpkinOS/src/libpit/endianness.c
+        PumpkinOS/src/libpit/filter.c
+        PumpkinOS/src/libpit/findargs.c
+        PumpkinOS/src/libpit/gps.c
+        PumpkinOS/src/libpit/graphic.c
+        PumpkinOS/src/libpit/httpc.c
+        PumpkinOS/src/libpit/httpd.c
+        PumpkinOS/src/libpit/io.c
+        PumpkinOS/src/libpit/list.c
+        PumpkinOS/src/libpit/loadfile.c
+        PumpkinOS/src/libpit/login.c
+        PumpkinOS/src/libpit/main.c
+        PumpkinOS/src/libpit/media.c
+        PumpkinOS/src/libpit/mutex.c
+        PumpkinOS/src/libpit/pterm.c
+        PumpkinOS/src/libpit/ptr.c
+        PumpkinOS/src/libpit/script.c
+        PumpkinOS/src/libpit/sig.c
+        PumpkinOS/src/libpit/sock.c
+        PumpkinOS/src/libpit/surface.c
+        PumpkinOS/src/libpit/sys.c
+        PumpkinOS/src/libpit/telnet.c
+        PumpkinOS/src/libpit/template.c
+        PumpkinOS/src/libpit/threadudp.c
+        PumpkinOS/src/libpit/timeutc.c
+        PumpkinOS/src/libpit/ts.c
+        PumpkinOS/src/libpit/util.c
+        PumpkinOS/src/libpit/vfont.c
+        PumpkinOS/src/libpit/vfs.c
+        PumpkinOS/src/libpit/vfslocal.c
+        PumpkinOS/src/libpit/xalloc.c
+        PumpkinOS/src/libpit/yuv.c
         )
 
 add_library( # Sets the name of the library.
@@ -96,40 +96,40 @@ add_library( # Sets the name of the library.
         # Sets the library as a shared library.
         SHARED
 
-        pumpkin/lua/src/lapi.c
-        pumpkin/lua/src/lauxlib.c
-        pumpkin/lua/src/lbaselib.c
-        pumpkin/lua/src/lbitlib.c
-        pumpkin/lua/src/lcode.c
-        pumpkin/lua/src/lcorolib.c
-        pumpkin/lua/src/lctype.c
-        pumpkin/lua/src/ldblib.c
-        pumpkin/lua/src/ldebug.c
-        pumpkin/lua/src/ldo.c
-        pumpkin/lua/src/ldump.c
-        pumpkin/lua/src/lfunc.c
-        pumpkin/lua/src/lgc.c
-        pumpkin/lua/src/linit.c
-        pumpkin/lua/src/liolib.c
-        pumpkin/lua/src/llex.c
-        pumpkin/lua/src/lmathlib.c
-        pumpkin/lua/src/lmem.c
-        pumpkin/lua/src/loadlib.c
-        pumpkin/lua/src/lobject.c
-        pumpkin/lua/src/lopcodes.c
-        pumpkin/lua/src/loslib.c
-        pumpkin/lua/src/lparser.c
-        pumpkin/lua/src/lstate.c
-        pumpkin/lua/src/lstring.c
-        pumpkin/lua/src/lstrlib.c
-        pumpkin/lua/src/ltable.c
-        pumpkin/lua/src/ltablib.c
-        pumpkin/lua/src/ltm.c
-        pumpkin/lua/src/lundump.c
-        pumpkin/lua/src/lutf8lib.c
-        pumpkin/lua/src/lvm.c
-        pumpkin/lua/src/lzio.c
-        pumpkin/lua/src/script_lua.c
+        PumpkinOS/src/lua/lapi.c
+        PumpkinOS/src/lua/lauxlib.c
+        PumpkinOS/src/lua/lbaselib.c
+        PumpkinOS/src/lua/lbitlib.c
+        PumpkinOS/src/lua/lcode.c
+        PumpkinOS/src/lua/lcorolib.c
+        PumpkinOS/src/lua/lctype.c
+        PumpkinOS/src/lua/ldblib.c
+        PumpkinOS/src/lua/ldebug.c
+        PumpkinOS/src/lua/ldo.c
+        PumpkinOS/src/lua/ldump.c
+        PumpkinOS/src/lua/lfunc.c
+        PumpkinOS/src/lua/lgc.c
+        PumpkinOS/src/lua/linit.c
+        PumpkinOS/src/lua/liolib.c
+        PumpkinOS/src/lua/llex.c
+        PumpkinOS/src/lua/lmathlib.c
+        PumpkinOS/src/lua/lmem.c
+        PumpkinOS/src/lua/loadlib.c
+        PumpkinOS/src/lua/lobject.c
+        PumpkinOS/src/lua/lopcodes.c
+        PumpkinOS/src/lua/loslib.c
+        PumpkinOS/src/lua/lparser.c
+        PumpkinOS/src/lua/lstate.c
+        PumpkinOS/src/lua/lstring.c
+        PumpkinOS/src/lua/lstrlib.c
+        PumpkinOS/src/lua/ltable.c
+        PumpkinOS/src/lua/ltablib.c
+        PumpkinOS/src/lua/ltm.c
+        PumpkinOS/src/lua/lundump.c
+        PumpkinOS/src/lua/lutf8lib.c
+        PumpkinOS/src/lua/lvm.c
+        PumpkinOS/src/lua/lzio.c
+        PumpkinOS/src/lua/script_lua.c
         )
 
 add_library( # Sets the name of the library.
@@ -138,169 +138,169 @@ add_library( # Sets the name of the library.
         # Sets the library as a shared library.
         SHARED
 
-        pumpkin/libpumpkin/AboutBox.c
-        pumpkin/libpumpkin/AddressSortLib.c
-        pumpkin/libpumpkin/AlarmMgr.c
-        pumpkin/libpumpkin/AppRegistry.c
-        pumpkin/libpumpkin/AttentionMgr.c
-        pumpkin/libpumpkin/Bitmap.c
-        pumpkin/libpumpkin/BmpGlue.c
-        pumpkin/libpumpkin/BtLib.c
-        pumpkin/libpumpkin/CPMLib68KInterface.c
-        pumpkin/libpumpkin/Category.c
-        pumpkin/libpumpkin/Chat.c
-        pumpkin/libpumpkin/Clipboard.c
-        pumpkin/libpumpkin/ConnectionMgr.c
-        pumpkin/libpumpkin/ConsoleMgr.c
-        pumpkin/libpumpkin/Control.c
-        pumpkin/libpumpkin/Crc.c
-        pumpkin/libpumpkin/CtlGlue.c
-        pumpkin/libpumpkin/DLServer.c
-        pumpkin/libpumpkin/DateGlue.c
-        pumpkin/libpumpkin/DateTime.c
-        pumpkin/libpumpkin/Day.c
-        pumpkin/libpumpkin/DebugMgr.c
-        pumpkin/libpumpkin/Encrypt.c
-        pumpkin/libpumpkin/ErrorBase.c
-        pumpkin/libpumpkin/Event.c
-        pumpkin/libpumpkin/ExgLib.c
-        pumpkin/libpumpkin/ExgMgr.c
-        pumpkin/libpumpkin/ExpansionMgr.c
-        pumpkin/libpumpkin/FSLib.c
-        pumpkin/libpumpkin/FatalAlert.c
-        pumpkin/libpumpkin/FeatureMgr.c
-        pumpkin/libpumpkin/Field.c
-        pumpkin/libpumpkin/FileStream.c
-        pumpkin/libpumpkin/Find.c
-        pumpkin/libpumpkin/FixedMath.c
-        pumpkin/libpumpkin/FloatMgr.c
-        pumpkin/libpumpkin/FntGlue.c
-        pumpkin/libpumpkin/Font.c
-        pumpkin/libpumpkin/FontSelect.c
-        pumpkin/libpumpkin/Form.c
-        pumpkin/libpumpkin/FrmGlue.c
-        pumpkin/libpumpkin/GPDLib.c
-        pumpkin/libpumpkin/GPSLib68K.c
-        pumpkin/libpumpkin/Graffiti.c
-        pumpkin/libpumpkin/GraffitiReference.c
-        pumpkin/libpumpkin/GraffitiShift.c
-        pumpkin/libpumpkin/HAL.c
-        pumpkin/libpumpkin/HostControl.c
-        pumpkin/libpumpkin/IMCUtils.c
-        pumpkin/libpumpkin/INetMgr.c
-        pumpkin/libpumpkin/InsPoint.c
-        pumpkin/libpumpkin/IntlMgr.c
-        pumpkin/libpumpkin/IrLib.c
-        pumpkin/libpumpkin/KeyMgr.c
-        pumpkin/libpumpkin/Keyboard.c
-        pumpkin/libpumpkin/Launcher.c
-        pumpkin/libpumpkin/List.c
-        pumpkin/libpumpkin/LocaleMgr.c
-        pumpkin/libpumpkin/Localize.c
-        pumpkin/libpumpkin/LstGlue.c
-        pumpkin/libpumpkin/Lz77Mgr.c
-        pumpkin/libpumpkin/Menu.c
-        pumpkin/libpumpkin/ModemMgr.c
-        pumpkin/libpumpkin/NetBitUtils.c
-        pumpkin/libpumpkin/NetMgr.c
-        pumpkin/libpumpkin/OverlayMgr.c
-        pumpkin/libpumpkin/Password.c
-        pumpkin/libpumpkin/PceNativeCall.c
-        pumpkin/libpumpkin/PdiLib.c
-        pumpkin/libpumpkin/PenInputMgr.c
-        pumpkin/libpumpkin/PenMgr.c
-        pumpkin/libpumpkin/PhoneLookup.c
-        pumpkin/libpumpkin/Preferences.c
-        pumpkin/libpumpkin/PrivateRecords.c
-        pumpkin/libpumpkin/Progress.c
-        pumpkin/libpumpkin/Rect.c
-        pumpkin/libpumpkin/ScrollBar.c
-        pumpkin/libpumpkin/SelDay.c
-        pumpkin/libpumpkin/SelTime.c
-        pumpkin/libpumpkin/SelTimeZone.c
-        pumpkin/libpumpkin/SerialLinkMgr.c
-        pumpkin/libpumpkin/SerialMgr.c
-        pumpkin/libpumpkin/SerialMgrOld.c
-        pumpkin/libpumpkin/SerialSdrv.c
-        pumpkin/libpumpkin/SerialVdrv.c
-        pumpkin/libpumpkin/SlotDrvrLib.c
-        pumpkin/libpumpkin/SoundMgr.c
-        pumpkin/libpumpkin/SslLib.c
-        pumpkin/libpumpkin/StringMgr.c
-        pumpkin/libpumpkin/SysEvtMgr.c
-        pumpkin/libpumpkin/SysUtils.c
-        pumpkin/libpumpkin/SystemMgr.c
-        pumpkin/libpumpkin/Table.c
-        pumpkin/libpumpkin/TblGlue.c
-        pumpkin/libpumpkin/TelephonyMgr.c
-        pumpkin/libpumpkin/TextMgr.c
-        pumpkin/libpumpkin/TextServicesMgr.c
-        pumpkin/libpumpkin/TimeMgr.c
-        pumpkin/libpumpkin/TxtGlue.c
-        pumpkin/libpumpkin/UDAMgr.c
-        pumpkin/libpumpkin/UIColor.c
-        pumpkin/libpumpkin/UIControls.c
-        pumpkin/libpumpkin/UIResources.c
-        pumpkin/libpumpkin/VFSMgr.c
-        pumpkin/libpumpkin/Window.c
-        pumpkin/libpumpkin/dbg.c
-        pumpkin/libpumpkin/dia.c
-        pumpkin/libpumpkin/dlheap.c
-        pumpkin/libpumpkin/dlmalloc/dlmalloc.c
-        pumpkin/libpumpkin/edit.c
-        pumpkin/libpumpkin/fill.c
-        pumpkin/libpumpkin/grail.c
-        pumpkin/libpumpkin/language.c
-        pumpkin/libpumpkin/peditor.c
-        pumpkin/libpumpkin/pumpkin.c
-        pumpkin/libpumpkin/rcpexport.c
-        pumpkin/libpumpkin/rgb.c
-        pumpkin/libpumpkin/script.c
-        pumpkin/libpumpkin/storage.c
-        pumpkin/libpumpkin/syntax.c
-        pumpkin/libpumpkin/wav.c
-        pumpkin/libpumpkin/wman.c
-        pumpkin/libpumpkin/emulation/accessortrap.c
-        pumpkin/libpumpkin/emulation/arm/CPU.c
-        pumpkin/libpumpkin/emulation/arm/MMU.c
-        pumpkin/libpumpkin/emulation/arm/RAM.c
-        pumpkin/libpumpkin/emulation/arm/armem.c
-        pumpkin/libpumpkin/emulation/arm/armemu.c
-        pumpkin/libpumpkin/emulation/arm/cp15.c
-        pumpkin/libpumpkin/emulation/arm/icache.c
-        pumpkin/libpumpkin/emulation/arm/pxa_IC.c
-        pumpkin/libpumpkin/emulation/darm/armv7-tbl.c
-        pumpkin/libpumpkin/emulation/darm/armv7.c
-        pumpkin/libpumpkin/emulation/darm/darm-tbl.c
-        pumpkin/libpumpkin/emulation/darm/darm.c
-        pumpkin/libpumpkin/emulation/darm/thumb-tbl.c
-        pumpkin/libpumpkin/emulation/darm/thumb.c
-        pumpkin/libpumpkin/emulation/darm/thumb2-decoder.c
-        pumpkin/libpumpkin/emulation/darm/thumb2-tbl.c
-        pumpkin/libpumpkin/emulation/darm/thumb2.c
-        pumpkin/libpumpkin/emulation/disasm.c
-        pumpkin/libpumpkin/emulation/emupalmos.c
-        pumpkin/libpumpkin/emulation/flpemtrap.c
-        pumpkin/libpumpkin/emulation/flptrap.c
-        pumpkin/libpumpkin/emulation/fstrap.c
-        pumpkin/libpumpkin/emulation/gpdlibtrap.c
-        pumpkin/libpumpkin/emulation/hdtrap.c
-        pumpkin/libpumpkin/emulation/intltrap.c
-        pumpkin/libpumpkin/emulation/m68kcpu.c
-        pumpkin/libpumpkin/emulation/m68kdasm.c
-        pumpkin/libpumpkin/emulation/m68kops.c
-        pumpkin/libpumpkin/emulation/netlibtrap.c
-        pumpkin/libpumpkin/emulation/omtrap.c
-        pumpkin/libpumpkin/emulation/pinstrap.c
-        pumpkin/libpumpkin/emulation/serialtrap.c
-        pumpkin/libpumpkin/emulation/softfloat/softfloat.c
-        pumpkin/libpumpkin/emulation/systrap.c
-        pumpkin/libpumpkin/emulation/trapnames.c
-        pumpkin/Launcher/editbin.c
-        pumpkin/Launcher/editbmp.c
-        pumpkin/Launcher/editform.c
-        pumpkin/Launcher/editstr.c
-        pumpkin/Launcher/Launcher.c
+        PumpkinOS/src/libpumpkin/AboutBox.c
+        PumpkinOS/src/libpumpkin/AddressSortLib.c
+        PumpkinOS/src/libpumpkin/AlarmMgr.c
+        PumpkinOS/src/libpumpkin/AppRegistry.c
+        PumpkinOS/src/libpumpkin/AttentionMgr.c
+        PumpkinOS/src/libpumpkin/Bitmap.c
+        PumpkinOS/src/libpumpkin/BmpGlue.c
+        PumpkinOS/src/libpumpkin/BtLib.c
+        PumpkinOS/src/libpumpkin/CPMLib68KInterface.c
+        PumpkinOS/src/libpumpkin/Category.c
+        PumpkinOS/src/libpumpkin/Chat.c
+        PumpkinOS/src/libpumpkin/Clipboard.c
+        PumpkinOS/src/libpumpkin/ConnectionMgr.c
+        PumpkinOS/src/libpumpkin/ConsoleMgr.c
+        PumpkinOS/src/libpumpkin/Control.c
+        PumpkinOS/src/libpumpkin/Crc.c
+        PumpkinOS/src/libpumpkin/CtlGlue.c
+        PumpkinOS/src/libpumpkin/DLServer.c
+        PumpkinOS/src/libpumpkin/DateGlue.c
+        PumpkinOS/src/libpumpkin/DateTime.c
+        PumpkinOS/src/libpumpkin/Day.c
+        PumpkinOS/src/libpumpkin/DebugMgr.c
+        PumpkinOS/src/libpumpkin/Encrypt.c
+        PumpkinOS/src/libpumpkin/ErrorBase.c
+        PumpkinOS/src/libpumpkin/Event.c
+        PumpkinOS/src/libpumpkin/ExgLib.c
+        PumpkinOS/src/libpumpkin/ExgMgr.c
+        PumpkinOS/src/libpumpkin/ExpansionMgr.c
+        PumpkinOS/src/libpumpkin/FSLib.c
+        PumpkinOS/src/libpumpkin/FatalAlert.c
+        PumpkinOS/src/libpumpkin/FeatureMgr.c
+        PumpkinOS/src/libpumpkin/Field.c
+        PumpkinOS/src/libpumpkin/FileStream.c
+        PumpkinOS/src/libpumpkin/Find.c
+        PumpkinOS/src/libpumpkin/FixedMath.c
+        PumpkinOS/src/libpumpkin/FloatMgr.c
+        PumpkinOS/src/libpumpkin/FntGlue.c
+        PumpkinOS/src/libpumpkin/Font.c
+        PumpkinOS/src/libpumpkin/FontSelect.c
+        PumpkinOS/src/libpumpkin/Form.c
+        PumpkinOS/src/libpumpkin/FrmGlue.c
+        PumpkinOS/src/libpumpkin/GPDLib.c
+        PumpkinOS/src/libpumpkin/GPSLib68K.c
+        PumpkinOS/src/libpumpkin/Graffiti.c
+        PumpkinOS/src/libpumpkin/GraffitiReference.c
+        PumpkinOS/src/libpumpkin/GraffitiShift.c
+        PumpkinOS/src/libpumpkin/HAL.c
+        PumpkinOS/src/libpumpkin/HostControl.c
+        PumpkinOS/src/libpumpkin/IMCUtils.c
+        PumpkinOS/src/libpumpkin/INetMgr.c
+        PumpkinOS/src/libpumpkin/InsPoint.c
+        PumpkinOS/src/libpumpkin/IntlMgr.c
+        PumpkinOS/src/libpumpkin/IrLib.c
+        PumpkinOS/src/libpumpkin/KeyMgr.c
+        PumpkinOS/src/libpumpkin/Keyboard.c
+        PumpkinOS/src/libpumpkin/Launcher.c
+        PumpkinOS/src/libpumpkin/List.c
+        PumpkinOS/src/libpumpkin/LocaleMgr.c
+        PumpkinOS/src/libpumpkin/Localize.c
+        PumpkinOS/src/libpumpkin/LstGlue.c
+        PumpkinOS/src/libpumpkin/Lz77Mgr.c
+        PumpkinOS/src/libpumpkin/Menu.c
+        PumpkinOS/src/libpumpkin/ModemMgr.c
+        PumpkinOS/src/libpumpkin/NetBitUtils.c
+        PumpkinOS/src/libpumpkin/NetMgr.c
+        PumpkinOS/src/libpumpkin/OverlayMgr.c
+        PumpkinOS/src/libpumpkin/Password.c
+        PumpkinOS/src/libpumpkin/PceNativeCall.c
+        PumpkinOS/src/libpumpkin/PdiLib.c
+        PumpkinOS/src/libpumpkin/PenInputMgr.c
+        PumpkinOS/src/libpumpkin/PenMgr.c
+        PumpkinOS/src/libpumpkin/PhoneLookup.c
+        PumpkinOS/src/libpumpkin/Preferences.c
+        PumpkinOS/src/libpumpkin/PrivateRecords.c
+        PumpkinOS/src/libpumpkin/Progress.c
+        PumpkinOS/src/libpumpkin/Rect.c
+        PumpkinOS/src/libpumpkin/ScrollBar.c
+        PumpkinOS/src/libpumpkin/SelDay.c
+        PumpkinOS/src/libpumpkin/SelTime.c
+        PumpkinOS/src/libpumpkin/SelTimeZone.c
+        PumpkinOS/src/libpumpkin/SerialLinkMgr.c
+        PumpkinOS/src/libpumpkin/SerialMgr.c
+        PumpkinOS/src/libpumpkin/SerialMgrOld.c
+        PumpkinOS/src/libpumpkin/SerialSdrv.c
+        PumpkinOS/src/libpumpkin/SerialVdrv.c
+        PumpkinOS/src/libpumpkin/SlotDrvrLib.c
+        PumpkinOS/src/libpumpkin/SoundMgr.c
+        PumpkinOS/src/libpumpkin/SslLib.c
+        PumpkinOS/src/libpumpkin/StringMgr.c
+        PumpkinOS/src/libpumpkin/SysEvtMgr.c
+        PumpkinOS/src/libpumpkin/SysUtils.c
+        PumpkinOS/src/libpumpkin/SystemMgr.c
+        PumpkinOS/src/libpumpkin/Table.c
+        PumpkinOS/src/libpumpkin/TblGlue.c
+        PumpkinOS/src/libpumpkin/TelephonyMgr.c
+        PumpkinOS/src/libpumpkin/TextMgr.c
+        PumpkinOS/src/libpumpkin/TextServicesMgr.c
+        PumpkinOS/src/libpumpkin/TimeMgr.c
+        PumpkinOS/src/libpumpkin/TxtGlue.c
+        PumpkinOS/src/libpumpkin/UDAMgr.c
+        PumpkinOS/src/libpumpkin/UIColor.c
+        PumpkinOS/src/libpumpkin/UIControls.c
+        PumpkinOS/src/libpumpkin/UIResources.c
+        PumpkinOS/src/libpumpkin/VFSMgr.c
+        PumpkinOS/src/libpumpkin/Window.c
+        PumpkinOS/src/libpumpkin/dbg.c
+        PumpkinOS/src/libpumpkin/dia.c
+        PumpkinOS/src/libpumpkin/dlheap.c
+        PumpkinOS/src/libpumpkin/dlmalloc/dlmalloc.c
+        PumpkinOS/src/libpumpkin/edit.c
+        PumpkinOS/src/libpumpkin/fill.c
+        PumpkinOS/src/libpumpkin/grail.c
+        PumpkinOS/src/libpumpkin/language.c
+        PumpkinOS/src/libpumpkin/peditor.c
+        PumpkinOS/src/libpumpkin/pumpkin.c
+        PumpkinOS/src/libpumpkin/rcpexport.c
+        PumpkinOS/src/libpumpkin/rgb.c
+        PumpkinOS/src/libpumpkin/script.c
+        PumpkinOS/src/libpumpkin/storage.c
+        PumpkinOS/src/libpumpkin/syntax.c
+        PumpkinOS/src/libpumpkin/wav.c
+        PumpkinOS/src/libpumpkin/wman.c
+        PumpkinOS/src/libpumpkin/emulation/accessortrap.c
+        PumpkinOS/src/libpumpkin/emulation/arm/CPU.c
+        PumpkinOS/src/libpumpkin/emulation/arm/MMU.c
+        PumpkinOS/src/libpumpkin/emulation/arm/RAM.c
+        PumpkinOS/src/libpumpkin/emulation/arm/armem.c
+        PumpkinOS/src/libpumpkin/emulation/arm/armemu.c
+        PumpkinOS/src/libpumpkin/emulation/arm/cp15.c
+        PumpkinOS/src/libpumpkin/emulation/arm/icache.c
+        PumpkinOS/src/libpumpkin/emulation/arm/pxa_IC.c
+        PumpkinOS/src/libpumpkin/emulation/darm/armv7-tbl.c
+        PumpkinOS/src/libpumpkin/emulation/darm/armv7.c
+        PumpkinOS/src/libpumpkin/emulation/darm/darm-tbl.c
+        PumpkinOS/src/libpumpkin/emulation/darm/darm.c
+        PumpkinOS/src/libpumpkin/emulation/darm/thumb-tbl.c
+        PumpkinOS/src/libpumpkin/emulation/darm/thumb.c
+        PumpkinOS/src/libpumpkin/emulation/darm/thumb2-decoder.c
+        PumpkinOS/src/libpumpkin/emulation/darm/thumb2-tbl.c
+        PumpkinOS/src/libpumpkin/emulation/darm/thumb2.c
+        PumpkinOS/src/libpumpkin/emulation/disasm.c
+        PumpkinOS/src/libpumpkin/emulation/emupalmos.c
+        PumpkinOS/src/libpumpkin/emulation/flpemtrap.c
+        PumpkinOS/src/libpumpkin/emulation/flptrap.c
+        PumpkinOS/src/libpumpkin/emulation/fstrap.c
+        PumpkinOS/src/libpumpkin/emulation/gpdlibtrap.c
+        PumpkinOS/src/libpumpkin/emulation/hdtrap.c
+        PumpkinOS/src/libpumpkin/emulation/intltrap.c
+        PumpkinOS/src/libpumpkin/emulation/m68kcpu.c
+        PumpkinOS/src/libpumpkin/emulation/m68kdasm.c
+        PumpkinOS/src/libpumpkin/emulation/m68kops.c
+        PumpkinOS/src/libpumpkin/emulation/netlibtrap.c
+        PumpkinOS/src/libpumpkin/emulation/omtrap.c
+        PumpkinOS/src/libpumpkin/emulation/pinstrap.c
+        PumpkinOS/src/libpumpkin/emulation/serialtrap.c
+        PumpkinOS/src/libpumpkin/emulation/softfloat/softfloat.c
+        PumpkinOS/src/libpumpkin/emulation/systrap.c
+        PumpkinOS/src/libpumpkin/emulation/trapnames.c
+        PumpkinOS/src/Launcher/editbin.c
+        PumpkinOS/src/Launcher/editbmp.c
+        PumpkinOS/src/Launcher/editform.c
+        PumpkinOS/src/Launcher/editstr.c
+        PumpkinOS/src/Launcher/Launcher.c
 )
 
 add_library( # Sets the name of the library.
@@ -313,7 +313,7 @@ add_library( # Sets the name of the library.
         native-lib.cpp
         window.c
         pitapp.c
-        pumpkin/libos/libos.c
+        PumpkinOS/src/libos/libos.c
         )
 
 # Searches for a specified prebuilt library and stores the path as a

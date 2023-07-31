@@ -1,0 +1,3 @@
+[submodule "app/src/main/cpp/PumpkinOS"]
+	path = app/src/main/cpp/PumpkinOS
+	url = https://github.com/migueletto/PumpkinOS.git
