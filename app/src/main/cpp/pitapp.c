@@ -90,6 +90,11 @@ void pitFinish(int pe) {
   debug_close();
 }
 
+void pitRequestFinish(void) {
+  debug(DEBUG_INFO, "MAIN", "pitRequestFinish");
+  pumpkin_forward_event(0, MSG_KEY, WINDOW_KEY_HOME, 0, 0);
+}
+
 void pitDeploy(char *path) {
   //StoDeployFile(path);
   // XXX update Launcher
@@ -107,5 +112,5 @@ int pitUpdate(JNIEnv *env, jobject bitmap, int invalidate) {
 }
 
 void pitPause(int paused) {
-  //libpalmos_pause(paused);
+  pumpkin_pause(paused);
 }

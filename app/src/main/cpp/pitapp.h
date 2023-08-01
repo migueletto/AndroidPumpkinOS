@@ -7,6 +7,7 @@ extern "C" {
 
 int pitInit(int width, int height);
 void pitFinish(int pe);
+void pitRequestFinish(void);
 void pitDeploy(char *path);
 int pitUpdate(JNIEnv *env, jobject bitmap, int invalidate);
 void pitPause(int paused);

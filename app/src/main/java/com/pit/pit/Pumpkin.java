@@ -2,13 +2,8 @@ package com.pit.pit;
 
 import android.app.Application;
 import android.content.Context;
-import android.content.Intent;
-import android.content.pm.PackageManager;
-import android.content.pm.ResolveInfo;
 import android.content.res.Resources;
 import android.graphics.Bitmap;
-import android.net.Uri;
-import android.os.Environment;
 import android.os.Handler;
 import android.util.Log;
 
@@ -18,8 +13,10 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
-import java.util.List;
 import java.util.Objects;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
+import java.util.concurrent.TimeUnit;
 
 public class Pumpkin extends Application {
 
@@ -30,9 +27,11 @@ public class Pumpkin extends Application {
     private int pe = -1;
     private boolean on;
     private boolean paused;
+    private boolean exited;
     private Handler handler;
     private Runnable r;
     private PumpkinUpdate updater;
+    private ExecutorService exec;
 
     @Override
     public void onCreate() {
@@ -41,13 +40,14 @@ public class Pumpkin extends Application {
 
         on = false;
         paused = true;
+        exited = false;
         handler = new Handler();
         installFiles();
 
         r = new Runnable() {
             public void run() {
-                if (on && !paused && updater != null) {
-                    updater.updateDisplay(false);
+                if (updater != null && !paused) {
+                    updater.updateDisplay(exited);
                     handler.postDelayed(this, 100);
                 }
             }
@@ -55,20 +55,35 @@ public class Pumpkin extends Application {
     }
 
     public void start(Bitmap bitmap, int width, int height) {
-        PumpkinTask task = new PumpkinTask(this, bitmap, width, height);
-        task.execute("");
+        Runnable r = new Runnable() {
+            public void run() {
+                Log.i("Application", "pumpkin thread begin");
+                pitUpdate(bitmap, 1);
+                pe = pitInit(width, height);
+                if (pe != -1) pitFinish(pe);
+                pumpkinSetOn(false);
+                exited = true;
+                Log.i("Application", "pumpkin thread end");
+            }
+        };
+        Log.e("Application", "start");
+        exec = Executors.newSingleThreadExecutor();
+        exec.execute(r);
+    }
+
+    public void stop() {
+        Log.i("Application", "stop");
+        pumpkinSetOn(false);
+        if (!exited) pitRequestFinish();;
+        try {
+            exec.awaitTermination(1, TimeUnit.SECONDS);
+        } catch (Exception ex) {
+            Log.e("Application", ex.getMessage());
+        }
     }
 
     public void pumpkinSetUpdate(PumpkinUpdate updater) {
         this.updater = updater;
-    }
-
-    public void pumpkinInit(int width, int height) {
-        pe = pitInit(width, height);
-    }
-
-    public void pumpkinFinish() {
-        pitFinish(pe);
     }
 
     public boolean pumpkinOn() {
@@ -77,10 +92,6 @@ public class Pumpkin extends Application {
 
     public void pumpkinSetOn(boolean on) {
         this.on = on;
-    }
-
-    public boolean pumpkinPaused() {
-        return paused;
     }
 
     public void pumpkinSetPaused(boolean paused) {
@@ -106,11 +117,12 @@ public class Pumpkin extends Application {
 
     private void copyFile(File from, File to) throws IOException {
         if (to.exists()) {
-            to.delete();
+            if (!to.delete()) {
+                Log.e("Pumpkin", "could noe delete file " + to.getName());
+            }
         }
         if (to.createNewFile()) {
             FileOutputStream os = new FileOutputStream(to);
-            Resources r = getResources();
             InputStream is = new FileInputStream(from);
             Log.i("Pumpkin", "copying file " + from.getName());
             copyFile(is, os);
@@ -194,8 +206,8 @@ public class Pumpkin extends Application {
     private native int pitInit(int width, int height);
     private native void pitFinish(int pe);
     private native void pitDeploy(String path);
+    private native void pitRequestFinish();
     public native int pitUpdate(Bitmap bitmap, int invalidate);
     public native void pitPause(boolean paused);
-    public native void pitKey(int key);
     public native void pitTouch(int action, int x, int y);
 }

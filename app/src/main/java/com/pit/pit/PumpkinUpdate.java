@@ -1,5 +1,5 @@
 package com.pit.pit;
 
 public interface PumpkinUpdate {
-    void updateDisplay(boolean invalidate);
+    void updateDisplay(boolean finish);
 }

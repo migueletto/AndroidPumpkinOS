@@ -11,6 +11,10 @@ extern "C" JNIEXPORT void JNICALL Java_com_pit_pit_Pumpkin_pitFinish(JNIEnv *env
     pitFinish(pe);
 }
 
+extern "C" JNIEXPORT void JNICALL Java_com_pit_pit_Pumpkin_pitRequestFinish(JNIEnv *env, jobject /* this */) {
+    pitRequestFinish();
+}
+
 extern "C" JNIEXPORT void JNICALL Java_com_pit_pit_Pumpkin_pitDeploy(JNIEnv *env, jobject /* this */, jstring path) {
     const char *s = (char *)env->GetStringUTFChars(path, 0);
     pitDeploy((char *)s);
