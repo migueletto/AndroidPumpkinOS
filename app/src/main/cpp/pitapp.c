@@ -102,3 +102,7 @@ void pitUpdate(JNIEnv *env, jobject bitmap) {
 void pitPause(int paused) {
   pumpkin_pause(paused);
 }
+
+void pitSetBattery(int level) {
+  pumpkin_set_battery(level);
+}

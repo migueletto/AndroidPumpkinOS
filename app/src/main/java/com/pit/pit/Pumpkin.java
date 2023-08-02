@@ -210,4 +210,5 @@ public class Pumpkin extends Application {
     public native void pitUpdate(Bitmap bitmap);
     public native void pitPause(boolean paused);
     public native void pitTouch(int action, int x, int y);
+    public native void pitSetBattery(int level);
 }

@@ -37,3 +37,7 @@ extern "C" JNIEXPORT void JNICALL Java_com_pit_pit_Pumpkin_pitPause(JNIEnv *env,
 extern "C" JNIEXPORT void JNICALL Java_com_pit_pit_Pumpkin_pitKey(JNIEnv *env, jobject /* this */, int key) {
     pitKey(key);
 }
+
+extern "C" JNIEXPORT void JNICALL Java_com_pit_pit_Pumpkin_pitSetBattery(JNIEnv *env, jobject /* this */, jint level) {
+    pitSetBattery(level);
+}

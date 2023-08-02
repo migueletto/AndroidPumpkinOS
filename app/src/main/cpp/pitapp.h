@@ -13,6 +13,7 @@ void pitUpdate(JNIEnv *env, jobject bitmap);
 void pitPause(int paused);
 void pitTouch(int down, int x, int y);
 void pitKey(int key);
+void pitSetBattery(int level);
 
 void window_init(int pe);
 void window_bitmap(JNIEnv *env, jobject bitmap);

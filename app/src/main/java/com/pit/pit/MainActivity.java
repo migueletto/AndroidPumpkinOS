@@ -1,11 +1,16 @@
 package com.pit.pit;
 
 import android.content.Intent;
+import android.content.IntentFilter;
+import android.os.BatteryManager;
 import android.os.Bundle;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 public class MainActivity extends AppCompatActivity implements PumpkinUpdate {
+
+    private static final int BATTERY_CHECK_PERIOD = 60000;
+    private long lastCheck;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -71,6 +76,21 @@ public class MainActivity extends AppCompatActivity implements PumpkinUpdate {
 
     @Override
     public void updateDisplay(boolean finish) {
+        long t = System.currentTimeMillis();
+        if ((t - lastCheck) >= BATTERY_CHECK_PERIOD) {
+            IntentFilter filter = new IntentFilter(Intent.ACTION_BATTERY_CHANGED);
+            Intent status = registerReceiver(null, filter);
+            int level = status.getIntExtra(BatteryManager.EXTRA_LEVEL, 0);
+            int scale = status.getIntExtra(BatteryManager.EXTRA_SCALE, 0);
+            if (level >= 0 && scale > 0) {
+                int battery = level * 100 / scale;
+                PumpkinLog.log(PumpkinLog.INFO, "MainActivity", "battery level " + battery);
+                Pumpkin pumpkin = getPumpkin();
+                pumpkin.pitSetBattery(battery);
+            }
+            lastCheck = t;
+        }
+
         CustomView cv = findViewById(R.id.customView);
         cv.invalidate();
         if (finish) {
