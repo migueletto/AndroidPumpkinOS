@@ -32,7 +32,7 @@
 
 extern int libos_start_direct(window_provider_t *wp, secure_provider_t *secure, int width, int height, int depth, int fullscreen, int dia, int single, char *launcher);
 
-int pitInit(int width, int height) {
+int pitInit(void) {
   script_engine_t *engine;
   window_provider_t *wp;
   audio_provider_t *ap;
@@ -53,20 +53,15 @@ int pitInit(int width, int height) {
   //vfs_local_mount("/data/user/0/com.pit.pit/", "/");
   vfs_local_mount("/data/data/com.pit.pit/", "/");
 
-  debug(DEBUG_INFO, "MAIN", "script_init");
   if (script_init(engine) != -1) {
-    debug(DEBUG_INFO, "MAIN", "script_create");
     if ((pe = script_create(engine)) != -1) {
-      debug(DEBUG_INFO, "MAIN", "window_init");
       window_init(pe);
       wp = script_get_pointer(pe, WINDOW_PROVIDER);
       ap = script_get_pointer(pe, AUDIO_PROVIDER);
       bt = script_get_pointer(pe, BT_PROVIDER);
       gps_parse_line = script_get_pointer(pe, GPS_PARSE_LINE_PROVIDER);
-      debug(DEBUG_INFO, "MAIN", "pumpkin_global_init");
       pumpkin_global_init(engine, wp, ap, bt, gps_parse_line);
-      debug(DEBUG_INFO, "MAIN", "libos_start_direct");
-      libos_start_direct(wp, NULL, width, height, 16, 0, 1, 0, "Launcher");
+      libos_start_direct(wp, NULL, 0, 0, 16, 0, 1, 0, "Launcher");
     }
   }
 
@@ -100,15 +95,8 @@ void pitDeploy(char *path) {
   // XXX update Launcher
 }
 
-int pitUpdate(JNIEnv *env, jobject bitmap, int invalidate) {
-  if (thread_must_end()) {
-    return -1;
-  }
+void pitUpdate(JNIEnv *env, jobject bitmap) {
   window_bitmap(env, bitmap);
-
-  //if (invalidate) libpalmos_invalidate();
-
-  return 0;
 }
 
 void pitPause(int paused) {

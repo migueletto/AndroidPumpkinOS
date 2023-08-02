@@ -5,11 +5,11 @@
 extern "C" {
 #endif
 
-int pitInit(int width, int height);
+int pitInit(void);
 void pitFinish(int pe);
 void pitRequestFinish(void);
 void pitDeploy(char *path);
-int pitUpdate(JNIEnv *env, jobject bitmap, int invalidate);
+void pitUpdate(JNIEnv *env, jobject bitmap);
 void pitPause(int paused);
 void pitTouch(int down, int x, int y);
 void pitKey(int key);

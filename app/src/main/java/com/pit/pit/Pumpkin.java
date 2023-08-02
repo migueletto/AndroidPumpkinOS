@@ -36,7 +36,7 @@ public class Pumpkin extends Application {
     @Override
     public void onCreate() {
         super.onCreate();
-        Log.i("Application", "onCreate");
+        PumpkinLog.log(PumpkinLog.INFO, "Application", "onCreate");
 
         on = false;
         paused = true;
@@ -48,37 +48,37 @@ public class Pumpkin extends Application {
             public void run() {
                 if (updater != null && !paused) {
                     updater.updateDisplay(exited);
-                    handler.postDelayed(this, 100);
+                    if (!exited) handler.postDelayed(this, 100);
                 }
             }
         };
     }
 
-    public void start(Bitmap bitmap, int width, int height) {
-        Runnable r = new Runnable() {
-            public void run() {
-                Log.i("Application", "pumpkin thread begin");
-                pitUpdate(bitmap, 1);
-                pe = pitInit(width, height);
-                if (pe != -1) pitFinish(pe);
-                pumpkinSetOn(false);
-                exited = true;
-                Log.i("Application", "pumpkin thread end");
-            }
+    public void start(Bitmap bitmap) {
+        Runnable r = () -> {
+            PumpkinLog.log(PumpkinLog.INFO, "Application", "pumpkin thread begin");
+            pitUpdate(bitmap);
+            pe = pitInit();
+            if (pe != -1) pitFinish(pe);
+            pumpkinSetOn(false);
+            exited = true;
+            PumpkinLog.log(PumpkinLog.INFO, "Application", "pumpkin thread end");
         };
-        Log.e("Application", "start");
+        PumpkinLog.log(PumpkinLog.INFO, "Application", "start");
         exec = Executors.newSingleThreadExecutor();
         exec.execute(r);
     }
 
     public void stop() {
-        Log.i("Application", "stop");
+        PumpkinLog.log(PumpkinLog.INFO, "Application", "stop");
         pumpkinSetOn(false);
-        if (!exited) pitRequestFinish();;
+        if (!exited) pitRequestFinish();
         try {
-            exec.awaitTermination(1, TimeUnit.SECONDS);
+            if (!exec.awaitTermination(1, TimeUnit.SECONDS)) {
+                PumpkinLog.log(PumpkinLog.ERROR, "Application", "stop timeout");
+            }
         } catch (Exception ex) {
-            Log.e("Application", ex.getMessage());
+            PumpkinLog.log(PumpkinLog.ERROR, "Application", "stop error " + ex.getMessage());
         }
     }
 
@@ -95,9 +95,9 @@ public class Pumpkin extends Application {
     }
 
     public void pumpkinSetPaused(boolean paused) {
+        PumpkinLog.log(PumpkinLog.INFO, "Application", "pumpkinSetPaused " + paused);
         this.paused = paused;
         if (!paused) {
-            Log.i("Pumpkin", "pumpkinSetPaused");
             handler.post(r);
         }
     }
@@ -203,11 +203,11 @@ public class Pumpkin extends Application {
     }
     */
 
-    private native int pitInit(int width, int height);
+    private native int pitInit();
     private native void pitFinish(int pe);
     private native void pitDeploy(String path);
     private native void pitRequestFinish();
-    public native int pitUpdate(Bitmap bitmap, int invalidate);
+    public native void pitUpdate(Bitmap bitmap);
     public native void pitPause(boolean paused);
     public native void pitTouch(int action, int x, int y);
 }

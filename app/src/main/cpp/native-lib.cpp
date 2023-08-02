@@ -3,8 +3,8 @@
 
 #include "pitapp.h"
 
-extern "C" JNIEXPORT jint JNICALL Java_com_pit_pit_Pumpkin_pitInit(JNIEnv *env, jobject /* this */, int width, int height) {
-    return pitInit(width, height);
+extern "C" JNIEXPORT jint JNICALL Java_com_pit_pit_Pumpkin_pitInit(JNIEnv *env, jobject /* this */) {
+    return pitInit();
 }
 
 extern "C" JNIEXPORT void JNICALL Java_com_pit_pit_Pumpkin_pitFinish(JNIEnv *env, jobject /* this */, int pe) {
@@ -21,9 +21,9 @@ extern "C" JNIEXPORT void JNICALL Java_com_pit_pit_Pumpkin_pitDeploy(JNIEnv *env
     env->ReleaseStringUTFChars(path, s);
 }
 
-extern "C" JNIEXPORT jint JNICALL Java_com_pit_pit_Pumpkin_pitUpdate(JNIEnv *env, jobject /* this */, jobject bitmap, int invalidate) {
+extern "C" JNIEXPORT void JNICALL Java_com_pit_pit_Pumpkin_pitUpdate(JNIEnv *env, jobject /* this */, jobject bitmap) {
     jobject obj = env->NewGlobalRef(bitmap);
-    return pitUpdate(env, obj, invalidate);
+    pitUpdate(env, obj);
 }
 
 extern "C" JNIEXPORT void JNICALL Java_com_pit_pit_Pumpkin_pitTouch(JNIEnv *env, jobject /* this */, int action, int x, int y) {
