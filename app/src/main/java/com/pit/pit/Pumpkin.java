@@ -152,6 +152,7 @@ public class Pumpkin extends Application {
             copyFile(R.raw.boot, dir, "BOOT.prc");
             copyFile(R.raw.launcher, dir, "Launcher.prc");
             copyFile(R.raw.minehunt, dir, "MINEHUNT.prc");
+            copyFile(R.raw.memopad, dir, "MemoPad.prc");
 
         } catch (Exception ex) {
             Log.e("Pumpkin", Objects.requireNonNull(ex.getMessage()));
