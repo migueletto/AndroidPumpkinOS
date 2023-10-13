@@ -72,6 +72,7 @@ add_library( # Sets the name of the library.
         PumpkinOS/src/libpit/mutex.c
         PumpkinOS/src/libpit/pterm.c
         PumpkinOS/src/libpit/ptr.c
+        PumpkinOS/src/libpit/rgb.c
         PumpkinOS/src/libpit/script.c
         PumpkinOS/src/libpit/sig.c
         PumpkinOS/src/libpit/sock.c
@@ -243,6 +244,7 @@ add_library( # Sets the name of the library.
         PumpkinOS/src/libpumpkin/UIResources.c
         PumpkinOS/src/libpumpkin/VFSMgr.c
         PumpkinOS/src/libpumpkin/Window.c
+        PumpkinOS/src/libpumpkin/calibrate.c
         PumpkinOS/src/libpumpkin/dbg.c
         PumpkinOS/src/libpumpkin/dia.c
         PumpkinOS/src/libpumpkin/dlheap.c
@@ -251,10 +253,10 @@ add_library( # Sets the name of the library.
         PumpkinOS/src/libpumpkin/fill.c
         PumpkinOS/src/libpumpkin/grail.c
         PumpkinOS/src/libpumpkin/language.c
+        PumpkinOS/src/libpumpkin/palette.c
         PumpkinOS/src/libpumpkin/peditor.c
         PumpkinOS/src/libpumpkin/pumpkin.c
         PumpkinOS/src/libpumpkin/rcpexport.c
-        PumpkinOS/src/libpumpkin/rgb.c
         PumpkinOS/src/libpumpkin/script.c
         PumpkinOS/src/libpumpkin/storage.c
         PumpkinOS/src/libpumpkin/syntax.c
