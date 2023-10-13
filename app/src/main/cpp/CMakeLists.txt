@@ -361,3 +361,9 @@ target_link_libraries(
         pumpkin
         pit
 )
+
+# To compile apps for Android using command line on WSL2:
+# Install Android NDK somewhere and set the NDK variable:
+# export NDK=/mnt/d/work/AndroidLinuxNDK/android-ndk-r26b/toolchains/llvm/prebuilt/linux-x86_64
+# cd to app dir and:
+# make MACHINE=arm OSNAME=Android BITS=32
